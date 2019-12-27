@@ -1,16 +1,17 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from "react-router-dom";
-import { testComponent } from './testComponent';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { SignInView } from './Views/SignInView';
+import { SignUpView } from './Views/SignUpView';
+import './App.css';
 
 function App() {
   return (
     <Router>
-      <div className="container">
-        <Route path="/" exact component={testComponent} />
-        <Route path="/login/" component="" />
-        <Route path="/signup" component="" />
-        <Route path="/user" component="" />
-      </div>
+      <Switch>
+        <Route path="/" exact component={SignInView} />
+        <Route path="/signin/" component={SignInView} />
+        <Route path="/signup/" component={SignUpView} />
+      </Switch>
     </Router>
   );
 }
