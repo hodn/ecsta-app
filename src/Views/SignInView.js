@@ -111,8 +111,8 @@ export class SignInView extends React.Component {
             return (
 
                 <div>
-                    <BarComponent link="/signup" linkName="Log Out" />
-                    <AppView />
+                    <BarComponent link="/signin" linkName="Log Out" />
+                    <AppView userId={this.state.userId}/>
 
                 </div>
 

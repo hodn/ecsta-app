@@ -35,6 +35,14 @@ router.route('/update').post((req, res) => {
         .catch(err => res.status(400).json('Error: ' + err));
 });
 
+router.route('/last').post((req, res) => {
+    Week.find({ userId: req.body.userId }).sort({ _id: -1 }).limit(1)
+        .then(week => {
+            res.json(week);
+        })
+        .catch(err => res.status(400).json('Error: ' + err));
+});
+
 router.route('/delete').delete((req, res) => {
     Week.findByIdAndDelete(req.params.id)
         .then(() => res.json('Week deleted.'))
